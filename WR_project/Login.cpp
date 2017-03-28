@@ -49,3 +49,18 @@ void Login::verifyLogin(std::string login, std::string password)
 	pass.close();
 	log.close();
 }
+
+
+void Login::newAccount(std::string login, std::string password)
+{
+	std::ofstream log;
+	log.open("Logins.txt", std::ios::app);
+	std::ofstream pass;
+	pass.open("Passwords.txt", std::ios::app);
+
+	log << login;
+	pass << password;
+
+	log.close();
+	pass.close();
+}
