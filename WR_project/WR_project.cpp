@@ -2,16 +2,89 @@
 //
 
 #include "stdafx.h"
-#include <iostream>
-#include <conio.h>
+#include "headers.h"
 #include "Login.h"
 #include "contacts.h"
+<<<<<<< HEAD
+=======
+#include "md5.h"
+
+>>>>>>> 5e5f43520042daaf59817617a0abbc10dbf62deb
 
 using namespace std;
 
+void chooseOperation(int operation)
+{
+	Login l;
+	string login;
+	string password = "";
+	string confirmPassword = "";
+	char c;
+	bool confirm = false;
+
+	switch (operation)
+	{
+	case 1:
+	{
+		cout << "Login: ";
+		cin >> login;
+		while(!confirm)
+		{
+			cout << "Password: ";
+			while (c = _getch() != 13)
+			{
+				cout << "*";
+				password += c;
+			}
+			cout << "Confirm Password: ";
+			while (c = _getch() != 13)
+			{
+				cout << "*";
+				confirmPassword += c;
+			}
+			if (password == confirmPassword)
+			{
+				l.newAccount(login, password);
+				confirm = true;
+			}
+		}
+		break;
+	}
+	case 2:
+	{
+		cout << "Login: ";
+		cin >> login;
+		cout << "Password: ";
+		while (c = _getch() != 13)
+		{
+			cout << "*";
+			password += c;
+		}
+		l.verifyLogin(login, password);
+		break;
+	}
+	default: {}
+	}
+}
+
+void menu()
+{
+	int operation;
+	string menu = "[1] sign up\n[2] sign in\n";
+
+	cout << menu << "Choose operation: ";
+	cin >> operation;
+
+	chooseOperation(operation);
+
+}
+
 int main()
 {
-	
+	while(1)
+	{
+		menu();
+	}
 	_getch();
     return 0;
 }
