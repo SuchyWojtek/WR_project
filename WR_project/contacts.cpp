@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "contacts.h"
-#include <fstream>
+#include "headers.h"
+
 
 Contacts::Contacts()
 {
-	id = 1;
+	_id = 1;
 }
 
 
@@ -28,6 +29,16 @@ void Contacts::setEmailAddress(std::string emailAddress) {
 
 void Contacts::newContact(int id,std::string name, std::string surname, std::string emailAddress) {
 	
+	setName(name);
+	setSurname(surname);
+	setEmailAddress(emailAddress);
 
+	std::fstream contacts;
+	contacts.open("contacts.txt", std::ios::out | std::ios::app);
 
+	contacts << _id << ';' << _name << ';' << _surname << ';' << _emailAddress <<  std::endl;
+
+	contacts.close();
+
+	_id++;
 }

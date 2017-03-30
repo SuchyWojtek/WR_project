@@ -1,9 +1,9 @@
 #pragma once
-#include <string>
+#include "headers.h"
 class Contacts
 {
 private:
-	int _id
+	int _id;
 	std::string _name;
 	std::string _surname;
 	std::string _emailAddress;
@@ -14,9 +14,9 @@ public:
 	void setSurname(std::string surname);
 	void setEmailAddress(std::string emailAddress);
 
-	void newContact();
-
-	void deleteContact(int id);
+	void newContact(int id, std::string name, std::string surname,std::string emailAddress);
+	
+	//void deleteContact(int id);
 
 
 	Contacts();

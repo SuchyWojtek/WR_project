@@ -5,6 +5,7 @@
 #include <iostream>
 #include <conio.h>
 #include "Login.h"
+#include "contacts.h"
 
 using namespace std;
 
