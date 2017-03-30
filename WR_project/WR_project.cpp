@@ -2,12 +2,11 @@
 //
 
 #include "stdafx.h"
-#include <iostream>
-#include <conio.h>
+#include "headers.h"
 #include "Login.h"
 #include "contacts.h"
 #include "md5.h"
-#include "string"
+
 
 using namespace std;
 
@@ -18,6 +17,7 @@ void chooseOperation(int operation)
 	string password = "";
 	string confirmPassword = "";
 	char c;
+	bool confirm = false;
 
 	switch (operation)
 	{
@@ -25,21 +25,25 @@ void chooseOperation(int operation)
 	{
 		cout << "Login: ";
 		cin >> login;
-		cout << "Password: ";
-		while (c = _getch() != 13)
+		while(!confirm)
 		{
-			cout << "*";
-			password += c;
-		}
-		cout << "Confirm Password: ";
-		while (c = _getch() != 13)
-		{
-			cout << "*";
-			confirmPassword += c;
-		}
-		if (password == confirmPassword)
-		{
-			l.newAccount(login,password);
+			cout << "Password: ";
+			while (c = _getch() != 13)
+			{
+				cout << "*";
+				password += c;
+			}
+			cout << "Confirm Password: ";
+			while (c = _getch() != 13)
+			{
+				cout << "*";
+				confirmPassword += c;
+			}
+			if (password == confirmPassword)
+			{
+				l.newAccount(login, password);
+				confirm = true;
+			}
 		}
 		break;
 	}
@@ -74,8 +78,10 @@ void menu()
 
 int main()
 {
-	
-	
+	while(1)
+	{
+		menu();
+	}
 	_getch();
     return 0;
 }

@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Login.h"
-#include <fstream>
-#include <string>
+#include "headers.h"
 #include "md5.h"
 
 

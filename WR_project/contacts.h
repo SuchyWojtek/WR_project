@@ -3,7 +3,7 @@
 class Contacts
 {
 private:
-	int _id
+	int _id;
 	std::string _name;
 	std::string _surname;
 	std::string _emailAddress;
