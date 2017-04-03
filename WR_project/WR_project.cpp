@@ -5,11 +5,7 @@
 #include "headers.h"
 #include "Login.h"
 #include "contacts.h"
-<<<<<<< HEAD
-=======
 #include "md5.h"
-
->>>>>>> 5e5f43520042daaf59817617a0abbc10dbf62deb
 
 using namespace std;
 
@@ -36,7 +32,7 @@ void chooseOperation(int operation)
 				cout << "*";
 				password += c;
 			}
-			cout << "Confirm Password: ";
+			cout << "\nConfirm Password: ";
 			while (c = _getch() != 13)
 			{
 				cout << "*";
@@ -70,7 +66,7 @@ void chooseOperation(int operation)
 void menu()
 {
 	int operation;
-	string menu = "[1] sign up\n[2] sign in\n";
+	string menu = "\n[1] sign up\n[2] sign in\n";
 
 	cout << menu << "Choose operation: ";
 	cin >> operation;
